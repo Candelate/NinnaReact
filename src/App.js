@@ -9,6 +9,8 @@ function App() {
       <h1>NinnaByAc</h1>
       <Product />
       <NavBar />
+    
+
     </div>
   );
 }
