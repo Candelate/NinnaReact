@@ -6,7 +6,7 @@ import {useStateValue} from '../StateProvider';
 import checkoutCard from './CheckoutCard';
  //product data
 
-import products from "./components/products"
+import ItemList from "./components/ItemList"
 
 const useStyles = makeStyles((theme) => ({
     root : {
@@ -22,7 +22,7 @@ const CheckoutPage () => {
     function FormRow (){
         return(
             <React.Fragment>
-                {products.map ((item) =>(
+                {ItemList.map ((item) =>(
                  <Grid item xs={12} sm={8} md={6} lg={4}>
                     <CheckoutCard key={item.id} product={item} />
                 <Grid/>

@@ -1,13 +1,13 @@
 import './App.css';
 import NavBar from './components/NavBar';
-import Product from './components/Product.js'
+import Item from './components/Item'
 
 
 function App() {
   return (
     <div className="App">
       <h1>NinnaByAc</h1>
-      <Product />
+      <Item />
       <NavBar />
     
 

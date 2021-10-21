@@ -25,7 +25,7 @@ const ExpandMore = styled((props) => {
 }
 ));
 
-export default function Product() {
+export default function Item() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {

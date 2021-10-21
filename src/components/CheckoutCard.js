@@ -16,7 +16,7 @@ const ExpandMore = styled((props) => {
  //cardActions:{display:"flex" justifyContent:"space-betwwen" textAling:"center"  }
 
  export default function CheckoutCard({
-    product: { id, name, productType, image, price ,rating, description},
+    Item: { id, name, productType, image, price ,rating, description},
 }){
     const classes = useStyles();
     const [expanded, setExpanded] = useState=(false);

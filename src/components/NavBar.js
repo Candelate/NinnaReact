@@ -7,6 +7,7 @@ import { Typography } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LoginIcon from '@mui/icons-material/Login';
 import logo from '../assets/logo.png'
+import { margin } from '@mui/system';
 
 
 // Gama de colores
@@ -37,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
   badge: {
     color: "#EF6351"
   },
+  category:{
+    fontFamily:"Libre Baskerville, serif",
+    margin: "17px"
+  }
 }))
 
 export default function NavBar() {
@@ -51,6 +56,10 @@ export default function NavBar() {
     <Typography className={classes.title} className={classes.mistyRose} variant="h6" component="div">
       Ninna By Ac
     </Typography>
+    <div className={classes.grow} />
+    <h3 className={classes.category}> Cuero</h3>
+    <h3 className={classes.category}> Eco-Cuero</h3>
+    <h3 className={classes.category}> Gamuza</h3>
     <div className={classes.grow} />
     <IconButton variant="link" className={classes.iconButton}>
     <Badge badgeContent="5" className={classes.fireOpal}>
