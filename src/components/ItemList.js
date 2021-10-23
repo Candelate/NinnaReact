@@ -1,35 +1,35 @@
-import React from 'react';
-import { db } from './Firebase/Firebase';
-import {colection. getDocs, query, where} from 'firebase/firestore'
+import React, { useEffect, useState } from 'react';
+import { db } from '../Firebase/Firebase';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 
 
 export default function ItemList (props) {
-    const productos = [{
-    id: 1,
-    nombre: "Bota lady",
-    precio: 12000,
-    stock: 3,
-    descripcion: "ecocuero"       
-    },
-{
-    id:2,
-    nombre: "Bota jojo",
-    precio: 12200,
-    stock: 3,
-    descripcion: "ecocuero"       
-}]
-
-return () => {
-    <ItemList>
-
-    </ItemList>
-}
-}
-//if (cateogry) {
-return (
-    <Item />
-    )
-    }else{
-    return("No hay nada amigo")
+    const test = db
+    const [items, setItems] = useState([])
+    const [loading, setLoanding] = useState(false)
+    useEffect(()  => {
+        setLoanding(true);
+        const itemCollection = collection(db,"Items");
+        getDocs(itemCollection).then((QuerySnapshot)=>{
+          if (QuerySnapshot.size===0){
+              console.log('No hay resultados');
+        }
+          setItems (QuerySnapshot.docs.map(doc => doc.data()));
+          console.log (items)
+        }).catch((error) =>{
+            console.log ("Error en los items", error);
+        }).finally (()=> {
+            setLoanding(false);
+  
+          });
+  
+    },[]);
+      return () => {
+      <>
+      {items.length!==0?(
+       <div></div>   
+      ):<p>No hay productos</p>}
+      </>
     }
+}

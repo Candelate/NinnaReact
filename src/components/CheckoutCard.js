@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -15,17 +16,24 @@ const ExpandMore = styled((props) => {
 
  //cardActions:{display:"flex" justifyContent:"space-betwwen" textAling:"center"  }
 
+ const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    marginBottom: "7rem"
+  },
+}))
+
  export default function CheckoutCard({
-    Item: { id, name, productType, image, price ,rating, description},
+    // Item: { id, name, productType, image, price ,rating, description},
 }){
     const classes = useStyles();
-    const [expanded, setExpanded] = useState=(false);
+    const [expanded, setExpanded] = useState(false);
    
     const handleExpandClick = () => {
         setExpanded(!expanded);
     
     }
-};
+
     
 
   
@@ -51,3 +59,5 @@ const ExpandMore = styled((props) => {
 
     </Card>
   );
+  }
+  

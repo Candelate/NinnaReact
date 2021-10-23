@@ -1,12 +1,19 @@
+import React from "react";
 import { ClassNames } from "@emotion/react";
 import { Button, makeStyles } from "@material-ui/core";
-import React from "react";
+
 
 
 const useStyles = makeStyles((theme)=> ({
 root:{
     display: "flex",
-    
+    flexDirection: "column",
+    justifyContent:"center",
+    alignItems: "center",
+
+},
+button:{
+    marginTop: "2px"
 }
 
 }))

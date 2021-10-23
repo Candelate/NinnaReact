@@ -1,5 +1,5 @@
-import as firebase from '.firebase/app'
-import {getFirestore} from 'firebase/firestone'
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCZi_aIUbuIu7kpRHOtwDIFHBNkOITnEY4",
@@ -10,11 +10,7 @@ const firebaseConfig = {
     messagingSenderId: "716521163737",
     appId: "1:716521163737:web:4ff46229407de27f50e7c8"
   };
+  const app = initializeApp(firebaseConfig);
 
 
-  const app = firebase.initialzeApp(firebaseConfig)
-
-  export const getFirestore = () => {
-      return app
-  }
-  export const db = getFirestore(app)
+export const db = getFirestore(app)
