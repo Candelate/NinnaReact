@@ -4,3 +4,39 @@
 	padding: 0;
 	
 }
+
+
+.footerPago{
+	display: flex;
+	flex-flow: column;
+	background-color: #F38375;
+
+	
+}
+.pagos{
+	color: #FFE3E0;
+	font-family: "Roboto","Helvetica", "Arial", sans-serif;
+	font-size: 1.25rem;
+	font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+	margin: 3px;
+}
+.contacto{
+	color: #FFE3E0;
+	font-family: "Roboto","Helvetica", "Arial", sans-serif;
+	font-size: 1.25rem;
+	font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+	margin: 3px;
+}
+.logoTarjetasContainer{
+	display: flex;
+	justify-content: flex-start;
+}
+.logoTarjetasContainer img{
+	margin: 4px;
+	width: 60px;
+	height: 40px;
+}

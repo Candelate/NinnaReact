@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 // Gama de colores
 // vividTangerine:"#F7A399"
 // mistyRose:"#FFE3E0"
-// fireOpal:"#EF6351"
+// fireOpal:"#EF6351" 
 
 const useStyles = makeStyles((theme) => ({
   root: {
