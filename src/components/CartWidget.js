@@ -3,10 +3,9 @@ import { makeStyles} from "@material-ui/core";
 import { Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import {useStateValue} from '../StateProvider';
-import checkoutCard from './CheckoutCard';
 import ItemList from "./ItemList"
 import Total from './Total';
-import CheckoutCard from './CheckoutCard';
+import CartWidget from './CartWidget';
 
 
  //product data
@@ -30,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     //         <React.Fragment>
     //             {ItemList.map ((item) =>(
     //              <Grid item xs={12} sm={8} md={6} lg={4}>
-    //                 <CheckoutCard key={item.id} product={item} />
+    //                 <CartWidget key={item.id} product={item} />
     //             </Grid>
     //         ))}
     //         </React.Fragment>

@@ -2,7 +2,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import ItemList from './components/ItemList';
 import CheckoutCard from './components/CheckoutCard';
-import CheckoutPage from './components/CheckoutPage';
+import CartWidget from './components/CartWidget';
 import { Footer } from './components/Footer';
 
 
@@ -14,7 +14,7 @@ function App() {
       <ItemList />
       <NavBar />
       <CheckoutCard />
-      <CheckoutPage />
+      <CartWidget />
       <Footer />
     </div>
   );
