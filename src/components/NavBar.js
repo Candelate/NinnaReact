@@ -8,7 +8,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LoginIcon from '@mui/icons-material/Login';
 import logo from '../assets/logo.png'
 import { margin } from '@mui/system';
-import { Link } from 'react-router-dom';
 
 
 // Gama de colores

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect} from 'react'
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -11,8 +12,12 @@ import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import { db } from '../Firebase/Firebase';
+import { collection, getDocs} from 'firebase/firestore/lite';
 
 const ExpandMore = styled((props) => {
+
+
   const { expand, ...other } = props;
   return <IconButton {...other} />;
   })
@@ -25,32 +30,57 @@ const ExpandMore = styled((props) => {
 }
 ));
 
-export default function Item(producto, precio, descripcion, stock, categoria) {
+
+
+export default function Item() {
+
+const [products, setProducts] = useState([{}])
+const [loading, setLoading] = useState(true)
+
+useEffect(()  => {
+  if (!loading){
+    setLoading(true)
+    getDocs(collection(db, 'Items')).then((querySnapshot) => {
+      const products = querySnapshot.docs.map(doc => {
+        return {id: doc.id, ... doc.data()}
+      })
+      console.log(products)
+      setProducts(products)
+    })
+  }else{
+    setLoading(false)
+  }},
+[])
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  function imageURL(n){
+    return ("./fotos/" + products[n].idImagen)
+  }
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        title="Balctic"
+        title={products[0].Producto}
         subheader="Solo stock disponible en visón"
       />
       
       <CardMedia
         component="img"
         height="350"
-        image="./fotos/balctic.jpeg"
+        image={imageURL(0)}
         alt="Bota"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Botas Balctic, este modelo es tendencia este 2021.
+          {products[0].Descripcion}
         </Typography>
       </CardContent>
-      $14.110
+      ${products[0].Precio}
       <LocalOfferIcon />
         
       <CardActions disableSpacing>
