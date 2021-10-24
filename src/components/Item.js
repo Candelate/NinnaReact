@@ -37,14 +37,12 @@ const ExpandMore = styled((props) => {
 export default function Item() {
 
     const [products, setProducts] = useState([{}])
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [productList, setProductList] = useState([])
     const myStorage = window.localStorage
-
-
+    console.log(loading)
     useEffect(() => {
             if (!loading) {
-
                 setLoading(true)
                 getDocs(collection(db, 'Items')).then((querySnapshot) => {
                     const products = querySnapshot.docs.map(doc => {
@@ -60,6 +58,7 @@ export default function Item() {
                                 subheader="Solo stock disponible en visón"
                             />
                             <CardMedia
+
                                 component="img"
                                 height="350"
                                 image={"./fotos/" + (index.idImagen)}
@@ -81,13 +80,14 @@ export default function Item() {
                             </CardActions>
                             </button>
                         </Card>
+
                     }))
                 })
             } else {
                 setLoading(false)
             }
         },
-        [products])
+        [])
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -100,7 +100,6 @@ export default function Item() {
     }
 
 
-    // Lo que debemos hacer es un ciclo for o foreach para que en el return se muestren 8 items en vez de solo el primero
 
     return productList
 

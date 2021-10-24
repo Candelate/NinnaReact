@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {makeStyles} from "@material-ui/core/styles"
 import {AppBar, Badge} from '@mui/material';
 import {Toolbar} from '@mui/material';
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 export default function NavBar() {
     const myStorage = window.localStorage
     const classes = useStyles();
-    let propsBoolean = true
+    let propsCartLength = myStorage.length
     return (
 
         <div className={classes.root}>
@@ -64,18 +64,25 @@ export default function NavBar() {
                     <IconButton edge="start" color="inherit" aria-label="menu" sx={{mr: 2}}>
                         <img src={logo} className={classes.logo}/>
                     </IconButton>
-
+                    <Link to="home">
                     <Typography className={classes.title} className={classes.mistyRose} variant="h6" component="div">
                         Ninna By Ac
                     </Typography>
+                    </Link>
                     <div className={classes.grow}/>
+                    <Link to="cuero">
                     <h3 className={classes.category}> Cuero</h3>
-                    <h3 className={classes.category}> Eco-Cuero</h3>
-                    <h3 className={classes.category}> Gamuza</h3>
+                    </Link>
+                    <Link to="eco-cuero">
+                        <h3 className={classes.category}> Eco-Cuero</h3>
+                    </Link>    
+                    <Link to="gamuza">
+                        <h3 className={classes.category}> Gamuza</h3>
+                    </Link>
                     <div className={classes.grow}/>
                     <Link to="checkout-page">
                     <IconButton className={classes.iconButton}>
-                        <Badge badgeContent="5" className={classes.fireOpal}>
+                        <Badge badgeContent={propsCartLength} className={classes.fireOpal}>
                             <ShoppingCartIcon className={classes.mistyRose} />
                         </Badge>
                     </IconButton>

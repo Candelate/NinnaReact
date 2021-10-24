@@ -7,6 +7,8 @@ import {Footer} from './components/Footer';
 import {Switch, BrowserRouter, Route} from 'react-router-dom';
 import Item from "./components/Item";
 import CheckoutPage from "./components/CartWidget";
+import { Form } from './components/Form';
+import { PantallaFinal } from './components/PantallaFinal';
 
 
 function App() {
@@ -21,9 +23,25 @@ function App() {
                     <Route path="/checkout-page">
                         <CheckoutPage/>
                     </Route>
+                    <Route path="/form">
+                      <Form />
+                    </Route>
+                    <Route path="/cuero">
+                    <ItemList/>
+                    </Route>
+                    <Route path="/gamuza">
+                    <ItemList/>
+                    </Route>
+                    <Route path="/eco-cuero">
+                    <ItemList/>
+                    </Route>
+                    <Route path="/pantalla-final">
+                    <PantallaFinal />
+                    </Route>
                 </Switch>
                 <NavBar/>
                 <Footer/>
+                
             </div>
         </BrowserRouter>
     );

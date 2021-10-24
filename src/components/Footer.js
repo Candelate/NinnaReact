@@ -21,11 +21,6 @@ export const Footer = () => {
                 <div class="contacto">
                     <p>Pordes contactarte al 1155667788 ante cualquier duda de Lunes a Viernes de 10 a 17hs.</p>
                 </div>
-                <div>
-                    <IconButton>
-                        <InstagramIcon IconfontSize="large"/>
-                    </IconButton>
-                </div>
             </footer>
         </div>
     )

@@ -65,3 +65,39 @@
     align-items: center;
     margin: 25px;
 }
+.formulario { 
+    margin: 0 auto;
+    margin-top: 60px;
+    width: 300px;
+    padding: 15px;
+    color:black;
+    border-radius: 3px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#F38375;
+}
+.textoForm{
+    height: 20px;
+    outline: none;
+    padding: 8px;
+    width: 280px;
+    border-radius: 11px;
+    border-width: 1px;
+    
+}
+.buttonForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 200px;
+    background-color:#F38375;
+    border-radius: 11px;
+    border-width: 1px;
+    height: 30px;
+    margin-block-end: 30px;
+    margin-block-start: 20px;
+}

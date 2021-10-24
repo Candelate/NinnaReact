@@ -14,6 +14,7 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import CardActions from "@mui/material/CardActions";
 import {IconButton} from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from 'react-router-dom';
 
 
 //product data
@@ -80,7 +81,9 @@ export default function CheckoutPage(props) {
                 <h2>Subtotal: <span> ${value} </span></h2>
             </div>
             <div className={'formContainer'}>
+                <Link to= "form">
                 <button className={"formRedirect"}> Haz click aqui para completar tu compra</button>
+                </Link>
             </div>
         </div>
     }
