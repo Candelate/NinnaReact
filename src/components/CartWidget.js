@@ -24,17 +24,17 @@ const useStyles = makeStyles((theme) => ({
     const classes = useStyles();
     
 
-    // function FormRow (){
-    //     return(
-    //         <React.Fragment>
-    //             {ItemList.map ((item) =>(
-    //              <Grid item xs={12} sm={8} md={6} lg={4}>
-    //                 <CartWidget key={item.id} product={item} />
-    //             </Grid>
-    //         ))}
-    //         </React.Fragment>
-    //     );
-    // }
+    function FormRow (){
+        return(
+            <React.Fragment>
+                {ItemList.map ((item) =>(
+                 <Grid item xs={12} sm={8} md={6} lg={4}>
+                    <CartWidget key={item.id} product={item} />
+                </Grid>
+            ))}
+            </React.Fragment>
+        );
+    }
 return (
     <div className={classes.root}>
         <Grid container spacing={3}>

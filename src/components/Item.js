@@ -15,7 +15,7 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { db } from '../Firebase/Firebase';
 import { collection, getDocs} from 'firebase/firestore/lite';
 
-const ExpandMore = styled((props) => {
+const ExpandMore = styled((props) => { 
 
 
   const { expand, ...other } = props;
@@ -36,6 +36,7 @@ export default function Item() {
 
 const [products, setProducts] = useState([{}])
 const [loading, setLoading] = useState(true)
+const [productList,setProductList] = useState([])
 
 useEffect(()  => {
   if (!loading){
@@ -46,11 +47,57 @@ useEffect(()  => {
       })
       console.log(products)
       setProducts(products)
+
+      setProductList(products.map((index) => {
+        return <Card sx={{ maxWidth: 345 }}>
+        <CardHeader
+  
+          title={index.Producto}
+          subheader="Solo stock disponible en visón"
+        />
+        
+        <CardMedia
+          component="img"
+          height="350"
+          image={"./fotos/" + (index.idImagen)}
+          alt="Bota"
+        />
+        <CardContent>
+          <Typography variant="body2" color="text.secondary">
+            {index.Descripcion}
+          </Typography>
+        </CardContent>
+        ${index.Precio}
+        <LocalOfferIcon />
+          
+        <CardActions disableSpacing>
+          Añadir al carrito
+          <IconButton aria-label="add to favorites">
+            <ShoppingCartIcon />
+          </IconButton>
+  
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more">
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography>{index.Descripcion}
+            </Typography>
+
+          </CardContent>
+        </Collapse>
+      </Card>  
+      }))
     })
   }else{
     setLoading(false)
   }},
-[])
+[products])
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -62,49 +109,9 @@ useEffect(()  => {
     return ("./fotos/" + products[n].idImagen)
   }
 
+
   // Lo que debemos hacer es un ciclo for o foreach para que en el return se muestren 8 items en vez de solo el primero
-
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-    <CardHeader
-      title={products[0].Producto}
-      subheader="Solo stock disponible en visón"
-    />
-    
-    <CardMedia
-      component="img"
-      height="350"
-      image={imageURL(0)}
-      alt="Bota"
-    />
-    <CardContent>
-      <Typography variant="body2" color="text.secondary">
-        {products[0].Descripcion}
-      </Typography>
-    </CardContent>
-    ${products[0].Precio}
-    <LocalOfferIcon />
-      
-    <CardActions disableSpacing>
-      Añadir al carrito
-      <IconButton aria-label="add to favorites">
-        <ShoppingCartIcon />
-      </IconButton>
-
-      <ExpandMore
-        expand={expanded}
-        onClick={handleExpandClick}
-        aria-expanded={expanded}
-        aria-label="show more">
-        <ExpandMoreIcon />
-      </ExpandMore>
-    </CardActions>
-    <Collapse in={expanded} timeout="auto" unmountOnExit>
-      <CardContent>
-        <Typography>{products[0].Descripcion}
-        </Typography>
-      </CardContent>
-    </Collapse>
-  </Card>  
-  )
+  
+  return productList
+  
 }

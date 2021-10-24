@@ -1,4 +1,8 @@
 import React from "react";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import IconButton from '@mui/material/IconButton';
+
+
 export  const Footer=() =>{
     return(
         <div>
@@ -16,7 +20,12 @@ export  const Footer=() =>{
             </div>
             <div class="contacto">
               <p>Pordes contactarte al 1155667788 ante cualquier duda de Lunes a Viernes de 10 a 17hs.</p>
-            </div>  
+            </div> 
+            <div>
+               <IconButton>
+                   <InstagramIcon IconfontSize= "large"/>
+                </IconButton> 		
+			     </div> 
         </footer>
     </div>
     )
